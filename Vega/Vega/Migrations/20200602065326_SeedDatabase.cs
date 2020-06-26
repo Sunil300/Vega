@@ -2,7 +2,7 @@
 
 namespace Vega.Migrations
 {
-    public partial class SeedDataBase : Migration
+    public partial class SeedDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,7 +28,6 @@ namespace Vega.Migrations
             migrationBuilder.Sql("Insert into Features (Name) values ('Feature2')");
             migrationBuilder.Sql("Insert into Features (Name) values ('Feature3')");
         }
-
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.Sql("Delete from Makes where Name In('Make1','Make2','Make3')");

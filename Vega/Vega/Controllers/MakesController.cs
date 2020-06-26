@@ -29,5 +29,24 @@ namespace Vega.Controllers
            var makes= await context.Makes.Include(m => m.Models).ToListAsync();
             return mapper.Map<List<Make>, List<MakeResource>>(makes);
         }
+        [HttpGet("/api/Features")]
+        public async Task<IEnumerable<FeatureResource>> GetFeatures()
+        {
+            var features= await context.Features.ToListAsync();
+            return mapper.Map<List<Feature>, List<FeatureResource>>(features);
+        }
+        //[HttpPost("/api/Vehicle")]
+        //public async Task<ActionResult<VehicleResource>> PostVehicle(Vehicle vehicle)
+        //{
+        //    context.Vehicles.Add(vehicle);
+        //    await context.SaveChangesAsync();
+        //    return Ok(vehicle);
+        //}
+        //[HttpPost("/api/Vehicles")]
+        //public IActionResult CreateVehicle(VehicleResource vehicleResource)
+        //{
+        //    var vehicle = mapper.Map<VehicleResource, Vehicle>(vehicleResource);
+        //    return Ok(vehicle);
+        //}
     }
 }
